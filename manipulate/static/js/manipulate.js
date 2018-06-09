@@ -32,7 +32,6 @@
     // public_ajax.call_request('get',earlyWarning_url,earlyWarning);
 
 
-
     function earlyWarning(data) {
         $('#recordingTable').bootstrapTable('load', data);
         $('#recordingTable').bootstrapTable({
@@ -299,7 +298,7 @@
 // 二级可疑股票池
 
     var earlyWarning_second_url='/maniPulate/manipulateWarningText';
-    public_ajax.call_request('get',earlyWarning_second_url,earlyWarning_second);
+    // public_ajax.call_request('get',earlyWarning_second_url,earlyWarning_second);
     function earlyWarning_second(data) {
         $('#recordingTable_second').bootstrapTable('load', data);
         $('#recordingTable_second').bootstrapTable({
@@ -509,10 +508,12 @@
         $('.recordingTable_second .fixed-table-toolbar .search input').attr('placeholder','请输入查询内容');
     };
 
+    earlyWarning_second(bigMainpulateData);
+
 // 三级可疑股票池
 
     var earlyWarning_third_url='/maniPulate/manipulateWarningText';
-    public_ajax.call_request('get',earlyWarning_third_url,earlyWarning_third);
+    // public_ajax.call_request('get',earlyWarning_third_url,earlyWarning_third);
     function earlyWarning_third(data) {
         $('#recordingTable_third').bootstrapTable('load', data);
         $('#recordingTable_third').bootstrapTable({
@@ -721,3 +722,4 @@
         $('#recordingTable_third center.loading').hide();
         $('.recordingTable_third .fixed-table-toolbar .search input').attr('placeholder','请输入查询内容');
     };
+    earlyWarning_third(bigMainpulateData)
