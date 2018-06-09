@@ -16,7 +16,13 @@ def test():
 def test2():
 	return render_template('dashboard/2.html')
 
+# LLL 6-9
 # 业务系统 -态势分析
 @mod.route('/newSituationtem')
-def test2():
-    return render_template('dashboard/2.html')
+def newSituationtem():
+    return render_template('backstage/newSituationtem/newSituationtem.html')
+
+# 业务系统 -操纵监测
+@mod.route('/maniPulate')
+def maniPulate():
+    return render_template('backstage/maniPulate/manipulate.html')

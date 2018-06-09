@@ -1,7 +1,12 @@
 
 // 预警数
     var warningNumber_url='/maniPulate/manipulateWarning';
-    public_ajax.call_request('get',warningNumber_url,warningNumber);
+    // public_ajax.call_request('get',warningNumber_url,warningNumber);
+    var warningNumberData = {
+        seasonnum: 96,
+        monthnum: 34,
+        weeknum: 10
+    }
     function warningNumber(data){
         if(data){
             $('#container .firstScreen .com-1').text(data.weeknum);
@@ -9,6 +14,7 @@
             $('#container .firstScreen .com-3').text(data.seasonnum);
         }
     }
+    warningNumber(warningNumberData);
 
 // 适配分辨率
     var pageData=6;
@@ -23,7 +29,10 @@
     $('#recordingTable').append(loadingHtml);
 
     var earlyWarning_url='/maniPulate/manipulateWarningText';
-    public_ajax.call_request('get',earlyWarning_url,earlyWarning);
+    // public_ajax.call_request('get',earlyWarning_url,earlyWarning);
+
+
+
     function earlyWarning(data) {
         $('#recordingTable').bootstrapTable('load', data);
         $('#recordingTable').bootstrapTable({
@@ -276,6 +285,7 @@
             })
         }
 
+    earlyWarning(bigMainpulateData);
 
     // 跳转详情页
     function jumpFrame_1(stock, id, manipulate_type_num) {
