@@ -3,7 +3,7 @@
 from flask import Blueprint,render_template,request
 import json
 
-mod = Blueprint('backstage_detail',__name__,url_prefix='/backstage_detail')
+mod = Blueprint('backstage_detect',__name__,url_prefix='/backstage_detect')
 
 
 @mod.route('/test/')
