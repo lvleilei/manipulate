@@ -26,3 +26,11 @@ def newSituationtem():
 @mod.route('/maniPulate')
 def maniPulate():
     return render_template('backstage/maniPulate/manipulate.html')
+
+# 业务系统 -操纵监测-详情页
+@mod.route('/setDetail')
+def setDetail():
+    stock = request.args.get('stock','')
+    id = request.args.get('id','')
+    manipulate_type_num = request.args.get('manipulate_type_num','')
+    return render_template('backstage/setDetail/setDetail.html',stock=stock,id=id,manipulate_type_num=manipulate_type_num)
