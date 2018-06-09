@@ -1,11 +1,9 @@
-#!/usr/bin/env python
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request, jsonify, Blueprint
-from ruman.db import *
 import json
 from optparse import OptionParser
-from ruman import create_app
+from manipulate import create_app
 
 optparser = OptionParser()
 optparser.add_option('-p','--port',dest='port',help='Server Http Port Number', default=5000, type='int')
