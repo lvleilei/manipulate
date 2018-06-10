@@ -30,13 +30,34 @@
     {% endblock %}
 
     <style type="text/css">
-        /* li#maniPulate {
+        li#maniPulate {
             overflow: visible !important;
         }
-        .downList {
+        #downList {
+            position: absolute;
             display:none;
-            padding-top:0.2rem;
-        } */
+            padding:0.1rem 0;
+            background-color: #ccc;
+            /* opacity:.7; */
+            width:100%;
+            text-align:center;
+            background-color: #096f83;
+        }
+        .downList_li {
+
+            color: #fff;
+            /* padding:5px 8px; */
+            border-bottom:1px solid rgba(255,255,255,.3);
+        }
+        .downList_li:hover {
+            background-color: #0f2c54;
+        }
+        .downList_li a,
+        .downList_li i
+        {
+            color: #fff !important;
+            font-size: .14rem;
+        }
     </style>
     <!-- head标签结束 -->
 
@@ -80,28 +101,29 @@
     </div>
     <ul class="nav_middle">
 
-        <li class="main_li" id="maniPulate">
-            <a class="list_three li_a" href="/index/maniPulate">
+        <li class="main_li" id="maniPulate" style="overflow:visible;">
+            <!-- <a class="list_three li_a" href="/index/maniPulate"> -->
+            <a class="list_three li_a" href="javascript:;">
                 <i class="fa fa-cog"></i>&nbsp;操纵监测
             </a>
-            <p class="line"></p>
-            <!-- <ul class="downList">
-                <li class="downList_li">
-                    <a class="list_three li_a" href="/maniPulate">
-                        <i class="fa fa-cog fa-spin"></i>&nbsp;一级股票池
+            <p class="line" style="display:none;"></p>
+            <ul id="downList">
+                <li class="downList_li" onclick="Lscroll_full(1)">
+                    <a class="list_three li_a" href="javascript:;">
+                        <i class="fa fa-cog"></i>&nbsp;一级股票池
                     </a>
                 </li>
-                <li class="downList_li">
-                    <a class="list_three li_a" href="/maniPulate">
-                        <i class="fa fa-cog fa-spin"></i>&nbsp;二级股票池
+                <li class="downList_li" onclick="Lscroll_full(2)">
+                    <a class="list_three li_a" href="javascript:;">
+                        <i class="fa fa-cog"></i>&nbsp;二级股票池
                     </a>
                 </li>
-                <li class="downList_li">
-                    <a class="list_three li_a" href="/maniPulate">
-                        <i class="fa fa-cog fa-spin"></i>&nbsp;三级股票池
+                <li class="downList_li" onclick="Lscroll_full(3)">
+                    <a class="list_three li_a" href="javascript:;">
+                        <i class="fa fa-cog"></i>&nbsp;三级股票池
                     </a>
                 </li>
-            </ul> -->
+            </ul>
         </li>
         <li class="main_li">
             <a class="list_three li_a" href="/index/newSituationtem">
@@ -147,8 +169,9 @@
 
 <!-- JS文件 -->
 {% block js %}
-<!-- <script src="/static/js/jquery-3.2.1.min.js"></script> -->
-<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.js"></script><!-- 为了鱼骨图js中的.size()方法 -->
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.js"></script><!-- 为了鱼骨图js中的.size()方法 --> -->
 
 <script src="/static/js/publicNav.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
@@ -166,18 +189,23 @@
 {% block write_js %}
 <script>
     // =========
-        // $('.nav_middle>li').eq(0).on('mouseover',function(){
-        //     // alert(1);
-        //     $(this).find('.downList').stop().slideDown(400);
-        // }).on('mouseout',function(){
-        //     // alert(1);
-        //     $(this).find('.downList').stop().slideUp(400);
-        // })
+        $('.nav_middle>li').eq(0).on('mouseover',function(){
+            // alert(1);
+            $(this).find('#downList').stop().slideDown(400);
+        }).on('mouseout',function(){
+            // alert(1);
+            $(this).find('#downList').stop().slideUp(400);
+        })
 
         // $('.nav_middle>li').eq(0).on('click',function(){
         //     // alert(1);
-        //     $(this).find('.downList').stop().slideToggle(400);
+        //     $(this).find('#downList').stop().slideToggle(400);
         // })
+
+        $('#downList li').on('click',function(){
+
+        })
+
     // ========
 
     $(document).ready(function() {
